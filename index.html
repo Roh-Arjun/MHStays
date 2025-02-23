@@ -1,11 +1,612 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-</body>
+  <head>
+    <title>Madhu's HomeStay</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon.ico">
+    <link rel="stylesheet" href="assets/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+
+    <!-- <link rel="stylesheet" href="css/aos.css"> -->
+
+    <link rel="stylesheet" href="assets/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="assets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="assets/css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/icomoon.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+	<style>
+        .slider-item {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100vh; /* Adjust as needed */
+        }
+        .slider-item video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            z-index: 1;
+        }
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+        .container {
+            position: relative;
+            z-index: 3;
+            color: white; /* Ensure text is visible */
+        }
+		/* new */
+		.autocomplete-items {
+      position: absolute;
+      border: 1px solid #d4d4d4;
+      border-bottom: none;
+      border-top: none;
+      z-index: 99;
+      top: 100%;
+      left: 0;
+      right: 0;
+    }
+
+    .autocomplete-item {
+      padding: 10px;
+      cursor: pointer;
+      background-color: #fff;
+      border-bottom: 1px solid #d4d4d4;
+    }
+
+    .autocomplete-item:hover {
+      background-color: #e9e9e9;
+    }
+
+    .autocomplete-active {
+      background-color: #d4d4d4 !important;
+    }
+
+    .no-match {
+      padding: 10px;
+      background-color: #ffdddd;
+      border: 1px solid #d4d4d4;
+    }
+    /* </style>
+      <style> */
+        .no-wrap {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.no-wrap .col-md-3, .no-wrap .col-6 {
+  flex: 0 0 auto;
+}
+.whatsapp-float a {
+            color: #fff;
+            font-size: 24px;
+            text-decoration: none;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        /* extra */
+        .stayplace{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px;
+        }
+        .card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card-text {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .view-all-btn {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+
+
+    </style>
+  </head>
+  <body>
+    <!-- <div class="d-flex justify-content-center mt-5">
+      <img src="assets/images/ErrorDisp.png">
+    </div> -->
+    <nav class="navbar navbar-expand-lg  ftco_navbar ftco-navbar-light" id="ftco-navbar">
+      <div class="container">
+          <a class="navbar-brand" href="index.html">Madhu's <span>HomeStay</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="oi oi-menu"></span> Menu
+          </button>
+  
+          <div class="collapse navbar-collapse" id="ftco-nav">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                  <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav> 
+ 
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Travellers<span>Escape</span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="rooms.html" class="nav-link">Our Rooms</a></li>
+	          <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
+	          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>  -->
+    <!-- END nav -->
+
+		<div class="hero">
+	    <section class="home-slider owl-carousel">
+			<div class="slider-item" style="position: relative; overflow: hidden;">
+				<video autoplay muted loop playsinline style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; object-fit: cover;">
+          <source src="assets/videos/vidhom.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+								<div class="overlay" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; background: rgba(0, 0, 0, 0.5);"></div>
+				
+				<div class="container" style="position: relative; z-index: 2;">
+					<div class="row no-gutters slider-text">
+						<div class="col-md-12 ftco-animate">
+							<div class="container mt-5">
+								<div class="form-group position-relative"><br>
+								  <label for="searchInput">Plan ur Trip with us</label>
+								  <div class="d-flex position-relative">
+                    <a href="https://maps.app.goo.gl/zhdsDC1wByfdfzG87" target="_blank" class="btn btn-primary" id="Phobe" style="margin-left: -1px;border: 2px solid black;">
+                      <span class="icon icon-map-marker">
+                      </a>
+									<a href="https://wa.me/+919916896464?text=I'm%20interested%20in%20your%20homestay" target="_blank" class="btn btn-primary" id="whatsappButton" style="margin-left: -1px;border: 2px solid black;">
+									  <span class="icon icon-whatsapp">
+                    </a> 
+                  <a href="tel:+919916896464" class="btn btn-primary" id="Phone" style="margin-left: -1px;border: 2px solid black;">
+									  <span class="icon icon-phone">
+                    </a>
+									<div id="autocompleteList" class="autocomplete-items"></div>
+								  </div>
+								</div>
+							  </div>
+							<div class="text">
+								<h2></h2>
+								<h1 class="mb-3 text-primary">Explore Places</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	    </section>
+	  </div> 
+
+<div class="mt-2 d-flex justify-content-center">
+  <a class="btn btn-warning" href="#roomlistsection">Book Room</a>
+</div>
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <span class="subheading">Welcome to Madhu's HomeStay</span>
+            <h2 class="mb-4">You'll Never Want To Leave</h2>
+          </div>
+        </div>  
+        <div class="row no-wrap">
+          <div class="col-md-3 col-6 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services py-4 d-block text-center">
+              <div class="d-flex justify-content-center">
+                <div class="icon d-flex align-items-center justify-content-center">
+                  <span class="flaticon-reception-bell"></span>
+                </div>
+              </div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Friendly Service</h3>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 col-6 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services active py-4 d-block text-center">
+              <div class="d-flex justify-content-center">
+                <div class="icon d-flex align-items-center justify-content-center">
+                  <span class="flaticon-serving-dish"></span>
+                </div>
+              </div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Get Breakfast</h3>
+              </div>
+            </div>    
+          </div>
+          <div class="col-md-3 col-6 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services py-4 d-block text-center">
+              <div class="d-flex justify-content-center">
+                <div class="icon d-flex align-items-center justify-content-center">
+                  <span class="flaticon-car"></span>
+                </div>
+              </div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Transfer Services</h3>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 col-6 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services py-4 d-block text-center">
+              <div class="d-flex justify-content-center">
+                <div class="icon d-flex align-items-center justify-content-center">
+                  <span class="ion-ios-bed"></span>
+                </div>
+              </div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Rooms</h3>
+              </div>
+            </div>      
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#"><img src="/assets/images/30.jpeg"></a>
+      
+      <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+             <h2 style="font-family:cursive;color:green;"></h2>
+          </li>
+        </ul>
+        <div>
+          <div>
+            <a href="#roomlistsection" class="btn btn-primary" style="color:black">Click here</a>
+          </div>
+          
+        </div>
+        
+      </div>
+    </nav> -->
+
+<!-- <div class="d-flex justify-content-center">
+  <img src="assets/images/HNY2025.webp">
+</div> -->
+  <div class="ftco-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5 pb-3">
+        <div class="col-md-7 heading-section text-center ftco-animate">
+          <h3 style="font-weight: bolder;">Trending Destinations</h3>
+          <p style="color:#25d366">We have shortlisted some of the trending destinations for our travellers to visit.</p> 
+        </div>
+      </div> 
+        <div class="stayplace">
+          <div class="card">
+             <a href="#"> <img src="https://lh3.googleusercontent.com/p/AF1QipOQVAA3zAMq_RMAiPgT4Sv5NYAFwXYd8sTO71eh=s1360-w1360-h1020-rw" alt="Pool Stays"></a>
+              <div class="card-text">Raja's Seat Garden</div>
+          </div>
+          <div class="card">
+            <a href="#"> <img src="https://lh3.googleusercontent.com/p/AF1QipN2iSLaaJTKBLLczuaY59kaSl6rKysBLQ_dgCOQ=s294-w294-h220-k-no" alt="Pool Stays"></a>
+            <div class="card-text">Madikeri Fort</div>
+          </div>
+          <div class="card">
+            <a href="#"> <img src="https://lh3.googleusercontent.com/p/AF1QipMn44k8lj_rrhkCsopVRGJaK0oWzYahJhrS0odr=s294-w294-h220-k-no" alt="Pool Stays"></a>
+            <div class="card-text">Omkareshwara Temple </div>
+          </div>
+          <div class="card">
+            <a href="#"> <img src="https://lh3.googleusercontent.com/p/AF1QipODMzL5wY4G-VHnqGtKywJY96rbh8t_4wOUK0_j=s294-w294-h220-k-no" alt="Pool Stays"></a>
+            <div class="card-text">Raja's Tomb</div>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+
+     <div class="container-xxl py-5" id="roomlistsection">
+      <div class="container">
+          <div class="row g-0 gx-5 align-items-end">
+              <div class="col-lg-6">
+                  <div class="text-start mx-auto mb-5 wow slideInLeft" data-wow-delay="0.1s">
+                      <div style="text-align: center;">
+                      <h3 style="font-weight: bolder;">Rooms Listing</h3></div>
+                  </div>
+              </div>
+              <div class="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
+                  <ul class="nav nav-pills d-inline-flex justify-content-end mb-5">
+                      <li class="nav-item me-2">
+                          <a class="btn btn-outline-primary active" data-bs-toggle="pill" href="#tab-1">All</a>
+                      </li>
+                      <li class="nav-item me-2">
+                          <a class="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-2">For Couple</a>
+                      </li>
+                      <li class="nav-item me-2">
+                          <a class="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-3">For Family</a>
+                      </li>
+                      <li class="nav-item me-0">
+                          <a class="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-4">For Group</a>
+                      </li>
+                      <li class="nav-item me-0">
+                        <a class="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-5">For Single</a>
+                    </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="tab-content">
+              <div id="tab-1" class="tab-pane fade show p-0 active">
+                  <div class="row g-4"> 
+                      <!-- my code chtgpt -->
+                      <div id="allrooms" class="row">
+                          <!-- Properties will be inserted here -->
+                     </div>
+                  </div>
+              </div>
+              <div id="tab-2" class="tab-pane fade show p-0 ">
+                  <div class="row g-4">
+                      <!-- my code chtgpt -->
+                      <div id="couplerooms" class="row"> 
+                          <!-- Properties will be inserted here -->
+                      </div>
+                  </div>
+              </div>
+              <div id="tab-3" class="tab-pane fade show p-0 ">
+                  <div class="row g-4"> 
+                      <!-- my code chtgpt -->
+                      <div id="familyrooms" class="row">
+                          <!-- Properties will be inserted here -->
+                       </div>
+                  </div>
+              </div>
+              <div id="tab-4" class="tab-pane fade show p-0 ">
+                  <div class="row g-4"> 
+                      <!-- my code chtgpt -->
+                      <div id="grouprooms" class="row"> 
+                          <!-- Properties will be inserted here -->
+                      </div>
+                  </div>
+              </div>
+              <div id="tab-5" class="tab-pane fade show p-0 ">
+                <div class="row g-4"> 
+                    <!-- my code chtgpt -->
+                    <div id="singleroom" class="row">
+                        <!-- Properties will be inserted here -->
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+  </div> 
+		
+		
+
+		
+		<section class="ftco-section ftco-menu bg-light">
+			<div class="container-fluid px-md-4">
+				<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+          	<span class="subheading">Restaurant</span>
+            <h2>Restaurant</h2>
+          </div>
+        </div>
+				<div class="row">
+        	<div class="col-lg-6 col-xl-4 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(assets/images/food/Deer\ Dose2.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>Neer Dosa</span></h3>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>Delicious Neer dosa with Chicken curry</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-lg-6 col-xl-4 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(assets/images/food/Akki\ roti.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>Akki Roti</span></h3>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>Akki Roti with chicken pepper fry</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-lg-6 col-xl-4 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(assets/images/food/chicken.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>Chicken fry</span></h3>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>Tasty Chicken Fry waiting for you</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-lg-6 col-xl-4 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(assets/images/food/NON\ VEG.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>Non Veg Meals</span></h3>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>Unlimited Non Veg Meals, Book now to Enjoy your Meals and HomeStay</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-lg-6 col-xl-4 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(assets/images/food/chicken\ peper.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>Chicken Pepper</span></h3>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>Hey, Your Fav Chicken Pepper</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-lg-6 col-xl-4 d-flex">
+        		<div class="pricing-entry rounded d-flex ftco-animate">
+        			<div class="img" style="background-image: url(assets/images/food/ottu\ shavige.jpg);"></div>
+        			<div class="desc p-4">
+	        			<div class="d-md-flex text align-items-start">
+	        				<h3><span>Ottu Shavige</span></h3>
+	        			</div>
+	        			<div class="d-block">
+	        				<p>Ottu Shavige with Chicken. Best combo, Have ever tried?</p>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+			</div>
+		</section>   
+
+     <footer class="ftco-footer ftco-section img" style="background-image: url(assets/images/bg_4.jpg);">
+    	<div class="overlay"></div>
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Madhu's HomeStay</h2>
+              <p>Make your travel unforgettable by staying at our HomeStay.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="https://www.instagram.com/madhushomestay"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><a href="https://maps.app.goo.gl/zhdsDC1wByfdfzG87" target="_blank"><span class="icon icon-map-marker"></span><span class="text">Madhu’s Home Stay, near Alathced Estate, Coorg Ammathi, Karnataka 571211</span></a></li>
+	                <li><a href="tel:+919916896464"><span class="icon icon-phone"></span><span class="text">+91 9916896464</span></a></li>
+                  <li><a href="tel:+919740332628"><span class="icon icon-phone"></span><span class="text">+91 9740332628</span></a></li>
+	                <li><a href="mailto:madhushomestay24@gmail.com"><span class="icon icon-envelope"></span><span class="text">madhushomestay24@gmail.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer> 
+    
+     <div class="whatsapp-float">
+      <a href="https://wa.me/+919916896464" target="_blank"><span class="icon icon-whatsapp"></span></a>
+    </div> 
+
+  <!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/jquery.easing.1.3.js"></script>
+  <script src="assets/js/jquery.waypoints.min.js"></script>
+  <script src="assets/js/jquery.stellar.min.js"></script>
+  <script src="assets/js/owl.carousel.min.js"></script>
+  <script src="assets/js/jquery.magnific-popup.min.js"></script>
+  <!-- <script src="js/aos.js"></script> -->
+  <script src="assets/js/jquery.animateNumber.min.js"></script>
+  <script src="assets/js/bootstrap-datepicker.js"></script>
+  <script src="assets/js/scrollax.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+
+  <script src="assets/services/indexservice.js"></script>
+
+  <script>
+    // Function to check screen size and remove the class
+    function checkScreenSize() {
+        const namebar = document.getElementById('ftco-navbar');
+        if (window.innerWidth <= 767) {
+            namebar.classList.remove('ftco-navbar-light');
+        } else {
+            namebar.classList.add('ftco-navbar-light');
+        }
+    }
+
+    // Check on initial load
+    checkScreenSize();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', checkScreenSize);
+</script>
+    
+  </body>
 </html>
