@@ -1,11 +1,227 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+  <head>
+  	<title>Admin Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="../assets/css/loginstyle.css"> -->
+	</head>
+
 <body>
-    <h1>addrooms works!</h1>
-</body>
+    <style>
+        select {
+  z-index: 9999;
+  position: relative;
+}
+.form-control {
+  height: 100%!important;
+}
+    </style>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<header>
+    <nav class="navbar navbar-expand-lg  ftco_navbar ftco-navbar-dark" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="dashboard.html">Madhu's <span>HomeStay</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+    
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="dashboard.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="login.html" class="nav-link" style="color:orangered"><span class="material-symbols-outlined">
+                        logout
+                        </span></a></li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Add New Room - MashuHomeStay</legend>
+
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="room_type">Room Type</label>
+  <div class="col-md-4">
+    <select id="room_type" name="room_type" class="form-control">
+        <option value="" selected disabled>Select</option>
+        <option value="couple">Couple</option>
+        <option value="family">Family</option>
+        <option value="group">Group</option>
+        <option value="single">Single</option>
+    </select>
+  </div>
+</div>
+
+<!-- <div class="form-group">
+    <label class="col-md-4 control-label" for="room_subtype">Room Sub Type</label>
+    <div class="col-md-4">
+      <select id="room_subtype" name="room_subtype" class="form-control">
+            <option value="" selected disabled>Select</option>
+          <option value="couplewithfood">Couple with Food</option>
+          <option value="couplewithoutfood">Couple without Food</option>
+          <option value="familywithfood">Family with Food</option>
+          <option value="familywithoutfood">Family without Food</option>
+          <option value="groupwithfood">Group with Food</option>
+          <option value="groupwithoutfood">Group without Food</option>
+          <option value="singlewithfood">Single with Food</option>
+          <option value="singlewithoutfood">Single without Food</option>
+      </select>
+    </div>
+  </div> -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="room_subtype">Room Sub Type</label>
+    <div class="col-md-4">
+      <select id="room_subtype" name="room_subtype" class="form-control">
+            <option value="" selected disabled>Select</option>
+      </select>
+    </div>
+</div>
+
+  <!-- <div class="form-group">
+    <label class="col-md-4 control-label" for="display_name">Display Name</label>
+    <div class="col-md-4">
+      <select id="display_name" name="display_name" class="form-control">
+            <option value="" selected disabled>Select</option>
+          <option value="couplewithfood">Couple with Food</option>
+          <option value="couplewithoutfood">Couple without Food</option>
+          <option value="familywithfood">Family with Food</option>
+          <option value="familywithoutfood">Family without Food</option>
+          <option value="groupwithfood">Group with Food</option>
+          <option value="groupwithoutfood">Group without Food</option>
+          <option value="singlewithfood">Single with Food</option>
+          <option value="singlewithoutfood">Single without Food</option>
+      </select>
+    </div>
+  </div> -->
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="price">Price</label>  
+  <div class="col-md-4">
+  <input type="text" id="price" name="available_quantity" placeholder="Price" class="form-control input-md" required > 
+  <span style="font-weight: bolder;color:orangered">per Night</span>
+  </div>
+</div>
+
+<div class="form-group">
+    <label class="col-md-4 control-label" for="food">Food</label>
+    <div class="col-md-4">
+      <select id="food" name="food" class="form-control">
+            <option value="" selected disabled>Select</option>
+          <option value="allfood">Unlimited BreakFast & Dinner(Veg & NON)</option>
+          <option value="CTO">Coffee/Tea only</option>
+          <option value="BFO">BreakFast only</option>
+          <option value="paid">Paid</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="fire">Fire Camp</label>
+    <div class="col-md-4">
+      <select id="fire" name="fire" class="form-control">
+            <option value="" selected disabled>Select</option>
+          <option value="free">Free</option>
+          <option value="paid">Paid</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="music">Music</label>
+    <div class="col-md-4">
+      <select id="music" name="music" class="form-control">
+            <option value="" selected disabled>Select</option>
+          <option value="free">Free</option>
+          <option value="paid">Paid</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="game">Game</label>
+    <div class="col-md-4">
+      <select id="game" name="game" class="form-control">
+            <option value="" selected disabled>Select</option>
+          <option value="free">Free</option>
+          <option value="paid">Paid</option>
+      </select>
+    </div>
+  </div>
+
+
+
+<!-- Button -->
+<div class="form-group d-flex justify-content-center">
+  <!-- <label class="col-md-4 control-label" for="singlebutton">Single Button</label> -->
+  <div class="col-md-4 ">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Add</button>
+  </div>
+  </div>
+
+</fieldset>
+</form>
+</div>
+<script>
+    document.getElementById("room_type").addEventListener("change", function () {
+        const roomType = this.value;
+        const subtypeDropdown = document.getElementById("room_subtype");
+  
+        // Room subtype options based on room type
+        const roomSubtypes = {
+            couple: [
+                { value: "couplewithfood", text: "Couple with Food" },
+                { value: "couplewithoutfood", text: "Couple without Food" }
+            ],
+            family: [
+                { value: "familywithfood", text: "Family with Food" },
+                { value: "familywithoutfood", text: "Family without Food" }
+            ],
+            group: [
+                { value: "groupwithfood", text: "Group with Food" },
+                { value: "groupwithoutfood", text: "Group without Food" }
+            ],
+            single: [
+                { value: "singlewithfood", text: "Single with Food" },
+                { value: "singlewithoutfood", text: "Single without Food" }
+            ]
+        };
+  
+        // Clear previous options
+        subtypeDropdown.innerHTML = '<option value="" selected disabled>Select</option>';
+  
+        // Add new options
+        if (roomSubtypes[roomType]) {
+            roomSubtypes[roomType].forEach(subtype => {
+                let option = document.createElement("option");
+                option.value = subtype.value;
+                option.textContent = subtype.text;
+                subtypeDropdown.appendChild(option);
+            });
+        }
+    });
+  </script>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/popper.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+
+
+  </body>
 </html>
+<!-- end document-->
