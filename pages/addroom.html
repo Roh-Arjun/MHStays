@@ -38,9 +38,9 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="dashboard.html" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                    <li class="nav-item"><a href="login.html" class="nav-link" style="color:orangered"><span class="material-symbols-outlined">
-                        logout
-                        </span></a></li>
+                    <li class="nav-item"><a href="" onclick="logout(event)" class="nav-link" style="color:orangered"><span class="material-symbols-outlined">
+                      logout
+                    </span></a></li>
                 </ul>
                 
             </div>
@@ -178,6 +178,16 @@
 </fieldset>
 </form>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      // Check if sessionStorage has clientTrust set to "yes"
+      if (sessionStorage.getItem("clientTrust") !== "yes") {
+          // Redirect to login page if not trusted
+          window.location.href = "login.html";
+      }
+  });
+</script>
+<script src="../services/login.js"></script>
 <script>
     document.getElementById("room_type").addEventListener("change", function () {
         const roomType = this.value;
