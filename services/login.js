@@ -18,11 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = await response.json();
             console.log(data)
             if (response.ok) {
-                sessionStorage.setItem("clientTrust", "yes")
+                sessionStorage.setItem("clientTrust", data.message)
+                sessionStorage.setItem("user",JSON.stringify(data.userRes))
                 window.location.href = "dashboard.html"; // Redirect on success
             } else {
                 sessionStorage.clear()
-                document.getElementById("errorMessage").innerText = data.message;
+                if(data.message==="Invalid")
+                    document.getElementById("errorMessage").innerText = "Invalid Username or Password";
+                else if(data.message==="NoUser")
+                    document.getElementById("errorMessage").innerText = "User Not Found / Unauthorized Access";
             }
         } catch (error) {
             document.getElementById("errorMessage").innerText = "Login failed. Try again.";

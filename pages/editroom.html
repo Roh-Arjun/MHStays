@@ -276,6 +276,7 @@ $(document).ready(function(){
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item active"><a href="dashboard.html" class="nav-link">Home</a></li>
 						<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+						<li class="nav-item"><span id="username" style="font-weight: bolder;background-color: yellow;"></span></li>
 						<li class="nav-item"><a href="" onclick="logout(event)" class="nav-link" style="color:orangered"><span class="material-symbols-outlined">
 							logout
 						  </span></a></li>
@@ -503,9 +504,12 @@ $(document).ready(function(){
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Check if sessionStorage has clientTrust set to "yes"
-        if (sessionStorage.getItem("clientTrust") !== "yes") {
+        if (sessionStorage.getItem("clientTrust") !== "Valid") {
             // Redirect to login page if not trusted
             window.location.href = "login.html";
+        }else{
+          const user = JSON.parse(sessionStorage.getItem("user"));
+          document.getElementById("username").innerText =user.username
         }
     });
 </script>
