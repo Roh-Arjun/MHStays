@@ -313,11 +313,13 @@ $(document).ready(function(){
                         <th>Music</th>
                         <th>Game</th>
                         <th>Hot Water</th>
+						<th>Modified By</th>
+						<th>Modified Date</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
+					<!-- <tr>
 						<td>
 							<span class="custom-checkbox">
 								<input type="checkbox" id="checkbox1" name="options[]" value="1">
@@ -415,7 +417,7 @@ $(document).ready(function(){
 							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 							 
 						</td>
-					</tr> 
+					</tr>  -->
 				</tbody>
 			</table>
 		</div>
@@ -501,18 +503,8 @@ $(document).ready(function(){
 		</div>
 	</div>
 </div>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Check if sessionStorage has clientTrust set to "yes"
-        if (sessionStorage.getItem("clientTrust") !== "Valid") {
-            // Redirect to login page if not trusted
-            window.location.href = "login.html";
-        }else{
-          const user = JSON.parse(sessionStorage.getItem("user"));
-          document.getElementById("username").innerText =user.username
-        }
-    });
-</script>
+<script src="../services/editroom.js"></script>
+<script src="../services/common.js"></script>
 <script src="../services/login.js"></script>
 </body>
 </html>

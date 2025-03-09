@@ -313,108 +313,20 @@ $(document).ready(function(){
                         <th>Music</th>
                         <th>Game</th>
                         <th>Hot Water</th>
+						<th>Modified By</th>
+						<th>Modified Date</th>
 						<!-- <th>Actions</th> -->
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1">
-								<label for="checkbox1"></label>
-							</span>
-						</td>
-						<td>Thomas Hardy</td>
-						<td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
-						<td>(171) 555-2222</td>
-						<td>s</td>
-                        <td>n</td>
-                        <td>sss</td>
-                        <td>nss</td>
-					</tr>
-					<tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox2" name="options[]" value="1">
-								<label for="checkbox2"></label>
-							</span>
-						</td>
-						<td>Dominique Perrier</td>
-						<td>dominiqueperrier@mail.com</td>
-						<td>Obere Str. 57, Berlin, Germany</td>
-						<td>(313) 555-5735</td>
-                        <td>s</td>
-                        <td>n</td>
-                        <td>sss</td>
-                        <td>nss</td>
-						
-					</tr>
-					<tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox3" name="options[]" value="1">
-								<label for="checkbox3"></label>
-							</span>
-						</td>
-						<td>Maria Anders</td>
-						<td>mariaanders@mail.com</td>
-						<td>25, rue Lauriston, Paris, France</td>
-						<td>(503) 555-9931</td>
-						<td>s</td>
-                        <td>n</td>
-                        <td>sss</td>
-                        <td>nss</td>
-					</tr>
-					<tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox4" name="options[]" value="1">
-								<label for="checkbox4"></label>
-							</span>
-						</td>
-						<td>Fran Wilson</td>
-						<td>franwilson@mail.com</td>
-						<td>C/ Araquil, 67, Madrid, Spain</td>
-						<td>(204) 619-5731</td>
-						<td>s</td>
-                        <td>n</td>
-                        <td>sss</td>
-                        <td>nss</td>
-					</tr>					
-					<tr>
-						<td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox5" name="options[]" value="1">
-								<label for="checkbox5"></label>
-							</span>
-						</td>
-						<td>Martin Blank</td>
-						<td>martinblank@mail.com</td>
-						<td>Via Monte Bianco 34, Turin, Italy</td>
-						<td>(480) 631-2097</td>
-						<td>s</td>
-                        <td>n</td>
-                        <td>sss</td>
-                        <td>nss</td>
-					</tr> 
+					<!-- DataBind from APi -->
 				</tbody>
 			</table>
 		</div>
 	</div>        
 </div>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Check if sessionStorage has clientTrust set to "yes"
-        if (sessionStorage.getItem("clientTrust") !== "Valid") {
-            // Redirect to login page if not trusted
-            window.location.href = "login.html";
-        }else{
-          const user = JSON.parse(sessionStorage.getItem("user"));
-          document.getElementById("username").innerText =user.username
-        }
-    });
-</script>
+<script src="../services/viewroom.js"></script>
+<script src="../services/common.js"></script>
 <script src="../services/login.js"></script>
 </body>
 </html>
