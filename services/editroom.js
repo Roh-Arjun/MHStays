@@ -47,3 +47,41 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Error fetching data:", error);
     });
 });
+
+document.getElementById("room_type").addEventListener("change", function () {
+        const roomType = this.value;
+        const subtypeDropdown = document.getElementById("room_subtype");
+  
+        // Room subtype options based on room type
+        const roomSubtypes = {
+            couple: [
+                { value: "couplewithfood", text: "Couple with Food" },
+                { value: "couplewithoutfood", text: "Couple without Food" }
+            ],
+            family: [
+                { value: "familywithfood", text: "Family with Food" },
+                { value: "familywithoutfood", text: "Family without Food" }
+            ],
+            group: [
+                { value: "groupwithfood", text: "Group with Food" },
+                { value: "groupwithoutfood", text: "Group without Food" }
+            ],
+            single: [
+                { value: "singlewithfood", text: "Single with Food" },
+                { value: "singlewithoutfood", text: "Single without Food" }
+            ]
+        };
+  
+        // Clear previous options
+        subtypeDropdown.innerHTML = '<option value="" selected disabled>Select</option>';
+  
+        // Add new options
+        if (roomSubtypes[roomType]) {
+            roomSubtypes[roomType].forEach(subtype => {
+                let option = document.createElement("option");
+                option.value = subtype.value;
+                option.textContent = subtype.text;
+                subtypeDropdown.appendChild(option);
+            });
+        }
+});
