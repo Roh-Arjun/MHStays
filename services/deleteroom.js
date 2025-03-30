@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         data.forEach((item, index) => {
             const row = document.createElement("tr");
             row.innerHTML = `
-                <td>
+                <td hidden>
                     <span class="custom-checkbox">
                         <input type="checkbox" id="checkbox${index + 1}" name="options[]" value="1">
                         <label for="checkbox${index + 1}"></label>
