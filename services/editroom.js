@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    form.addEventListener("submit", function (event) {
+    form.addEventListener("submit", async function (event) {
         event.preventDefault(); // Prevent default form submission
 
         let isValid = true;
@@ -178,26 +178,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (isValid) {
             const alertval=confirm("Are u sure you want submit the changes");
-            if(alertval){
-            const roomId=document.getElementById("roomid").value;
-            const roomType=document.getElementById("room_type").value;
-            const roomTypeSub=document.getElementById("room_subtype").value;
-            const price=document.getElementById("price").value;
-            const display=document.getElementById("display").value;
-            const img1 = document.getElementById("img1").value;
-            const img2 = document.getElementById("img2").value;
-            const img3 = document.getElementById("img3").value;
-            const food=document.getElementById("food").value;
-            const fireCamp=document.getElementById("fire").value;
-            const music=document.getElementById("music").value;
-            const games=document.getElementById("game").value;
-            const hotWater=document.getElementById("water").value;
+            if(alertval)
+            {
+                const roomId = document.getElementById("roomid").value;
+                const roomType = document.getElementById("room_type").value;
+                const roomTypeSub = document.getElementById("room_subtype").value;
+                const price = document.getElementById("price").value;
+                const display = document.getElementById("display").value;
+                const img1 = document.getElementById("img1").value;
+                const img2 = document.getElementById("img2").value;
+                const img3 = document.getElementById("img3").value;
+                const food = document.getElementById("food").value;
+                const fireCamp = document.getElementById("fire").value;
+                const music = document.getElementById("music").value;
+                const games = document.getElementById("game").value;
+                const hotWater = document.getElementById("water").value;
+                const user = JSON.parse(sessionStorage.getItem("user"));
+                const username=user.username
+               
 
-            sessionStorage
-            .setItem("Doc", JSON.stringify({ roomId, roomType, roomTypeSub, img1, img2, img3, price, display, food, fireCamp, music, games, hotWater}));
-            console.log("Successful submission");
-            document.getElementById("alertmsg").innerHTML="Successful submission"
+                const Localhost = 'http://localhost:21705/api/MHStays/';
+                const APIhost = 'https://rohhworks.bsite.net/api/MHStays/';
+                let BaseURl = Localhost;
+                try{
+                    const response = await fetch(BaseURl + "update-or-add-room", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ roomId, roomType, roomTypeSub, img1, img2, img3, price, display, food, fireCamp, music, games, hotWater, username})
+                    });
+                    const data = await response.json();
+                    if (response.ok) {
+                        document.getElementById("alertmsg").innerHTML="Successful submission"
+                    }else{
+                        document.getElementById("alertmsg").innerHTML="Try Again"
+                    }
+
+                }catch{
+                    document.getElementById("alertmsg").innerHTML="Sometging went wrong. Try Again"
+                }
+            
+            // sessionStorage
+            // .setItem("Doc", JSON.stringify({ roomId, roomType, roomTypeSub, img1, img2, img3, price, display, food, fireCamp, music, games, hotWater,username}));
+            // console.log("Successful submission");
+            
         }
+
             // Reset form fields after submission
             form.reset();
 
