@@ -2,9 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("loginForm").addEventListener("submit", async (event) => {
         event.preventDefault();
         try {
-            const Localhost = 'http://localhost:21705/api/MHStays/';
-            const APIhost = 'https://rohhworks.bsite.net/api/MHStays/';
-            let BaseURl = Localhost;
+            const BaseURl = await getConfig();
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
 

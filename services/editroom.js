@@ -1,12 +1,12 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
     const tbody = document.querySelector("table tbody");
     const loader = document.createElement("tr");
     loader.innerHTML = `
         <td colspan="9" style="text-align: center;">Loading...</td>
     `;
     tbody.appendChild(loader);
-
-    fetch("http://localhost:21705/api/MHStays/get-Rooms-Details", {
+    const BaseURl = await getConfig();
+    fetch(BaseURl + "get-Rooms-Details", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -197,9 +197,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 const username=user.username
                
 
-                const Localhost = 'http://localhost:21705/api/MHStays/';
-                const APIhost = 'https://rohhworks.bsite.net/api/MHStays/';
-                let BaseURl = Localhost;
+                // const Localhost = 'http://localhost:21705/api/MHStays/';
+                // const APIhost = 'https://rohhworks.bsite.net/api/MHStays/';
+                // let BaseURl = Localhost;
+                const BaseURl = await getConfig();
                 try{
                     const response = await fetch(BaseURl + "update-or-add-room", {
                         method: "POST",
