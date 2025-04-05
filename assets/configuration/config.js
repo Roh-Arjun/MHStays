@@ -21,4 +21,3 @@ async function getConfig(){
         console.error('Error fetching properties:', error);
     }
 }
-config()

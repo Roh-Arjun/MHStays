@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
         try {
             const BaseURl = await getConfig();
-            const username = document.getElementById("username").value;
+            const username = document.getElementById("username").value.trim();
             const password = document.getElementById("password").value;
 
             const response = await fetch(BaseURl + "login", {
