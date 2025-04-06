@@ -1,4 +1,30 @@
-document.addEventListener("DOMContentLoaded", () => {
+async function IsForgotPage(){
+    debugger
+    try{
+        const BaseURl = await getConfig();
+        const response = await fetch(BaseURl + "ReadConfig", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" }
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            if(data.isForgotPage===true){
+                document.getElementById("ForgotBlock").setAttribute("style", "display: block !important;");
+                document.getElementById("NotAvailtoChange").setAttribute("style", "display: none !important;")
+            }else{
+                document.getElementById("NotAvailtoChange").setAttribute("style", "display: block !important;")
+                document.getElementById("ForgotBlock").setAttribute("style", "display: none !important;");
+            }
+        }
+    }catch(ex){
+        console.log("Error: "+ex)
+    }
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+    await IsForgotPage()
     document.getElementById("forgotpasswordForm").addEventListener("submit", async (event) => {
         event.preventDefault();
         debugger;
@@ -23,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const BaseURl = await getConfig(); // assuming getConfig() is defined elsewhere
+            const BaseURl = await getConfig();
             const response = await fetch(BaseURl + "forgotPassword", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

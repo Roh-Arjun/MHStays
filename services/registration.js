@@ -1,4 +1,29 @@
-document.addEventListener("DOMContentLoaded", () => {
+async function IsRegisterPage(){
+    debugger
+    try{
+        const BaseURl = await getConfig(); // assuming getConfig() is defined elsewhere
+        const response = await fetch(BaseURl + "ReadConfig", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" }
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            if(data.isRegistrationPage===true){
+                document.getElementById("registrationBlock").setAttribute("style", "display: block !important;");
+                document.getElementById("NotAvailtoChange").setAttribute("style", "display: none !important;")
+            }else{
+                document.getElementById("NotAvailtoChange").setAttribute("style", "display: block !important;")
+                document.getElementById("registrationBlock").setAttribute("style", "display: none !important;");
+            }
+        }
+    }catch(ex){
+        console.log("Error: "+ex)
+    }
+}
+document.addEventListener("DOMContentLoaded", async () => {
+    await IsRegisterPage()
     document.getElementById("registrationForm").addEventListener("submit", async (event) => {
         event.preventDefault();
         debugger;

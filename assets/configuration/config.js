@@ -10,7 +10,7 @@ async function getConfig(){
             }
         });
     const config = await response.json();
-    const production=false
+    const production=true
     if(production===true){
         return config.APIEndPoint
     }else{
