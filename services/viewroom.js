@@ -1,12 +1,12 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
     const tbody = document.querySelector("table tbody");
     const loader = document.createElement("tr");
     loader.innerHTML = `
         <td colspan="9" style="text-align: center;">Loading...</td>
     `;
     tbody.appendChild(loader);
-
-    fetch("http://localhost:21705/api/MHStays/get-Rooms-Details", {
+    const BaseURl = await getConfig();
+    fetch(BaseURl+"get-Rooms-Details", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
